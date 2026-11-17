@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .user{
+            display: block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Personal Notes</h1>
+    <input class="user" id="input" type="text" placeholder="Enter Note Title">
+    <textarea class="user" name="note" id="input" placeholder="Write your note here"></textarea>
+    <button id="save">Save Note</button>
+    <button id="disp">Display Note</button>
+    <button id="click">Clear Note</button>
+    <div id="store"></div>
+    <script>
+        const btnsave=document.getElementById('save')
+        const user=document.getElementById('input')
+        const note=localStorage.getItem('input')||""
+
+        const btndisplay=document.getElementById('disp')
+        const displaydiv=document.getElementById('store')
+        
+        const clear=document.getElementById('click')
+        
+
+        user.value=note
+        btnsave.addEventListener('click',function(e){
+            localStorage.setItem('input',user.value)
+            alert('note was saved!')
+        })
+        btndisplay.addEventListener('click',function(){
+            display=localStorage.getItem('input')||""
+        })
+        clear.addEventListener('click',function(){
+            localStorage.removeItem('input');
+        })
+        
+        
+    </script>
+</body>
+</html>
